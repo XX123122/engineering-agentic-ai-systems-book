@@ -20,7 +20,7 @@ date: "2026-11-20"
 
 前置知识：[Ch03架构与目标语义](../part1/ch03_agent_architecture.md)、[Ch08模型推理](../part2/ch08_foundation_model_reasoning.md)，以及集合、图和基本Python。代码与数据入口为仓库`examples/ch09/`，行为测试为`tests/ch09/`；本章代码只需Python 3.11+标准库，运行仓库测试另需已锁定的pytest。原创代码和合成数据沿用仓库MIT许可证，无第三方业务数据。数据及源码SHA-256在`examples/ch09/results/exp09-01/summary.json`中记录。
 
-本章两幅图已接入矢量图，并附 PDF 与可编辑 AI 源文件；原绘图 prompt 保留；两张指定表的可编辑CSV位于`docs/images/ch09/`。本章的 Plan 字段用于教学示例，范围限定于本章代码。全文以离线规划为范围，执行后的计划修订交Ch10，实际外部操作交Ch12，调度交Ch22。
+本章两幅图使用 SVG 展示；两张指定表的可编辑CSV位于`docs/images/ch09/`。本章的 Plan 字段用于教学示例，范围限定于本章代码。全文以离线规划为范围，执行后的计划修订交Ch10，实际外部操作交Ch12，调度交Ch22。
 
 ## 9.1 遗漏依赖的计划事故
 
@@ -34,11 +34,9 @@ date: "2026-11-20"
 
 定位应从目标逐项回查，而不是先让模型解释自己为何认为计划正确。把“核验资格”映射到可信资格检查结果，把“审批”映射到有主体、对象、有效期和授权范围的审批证据，再检查提交节点的所有前驱。若无法找到生产这些条件的步骤，缺口就已确定；无需先执行真实写入来观察是否出错。
 
-> **Fig-09-01 带审批依赖的任务DAG。** 政策检索→资格核验；资格核验与材料准备共同汇入审批；审批→提交→状态验证。边表示前驱完成及证据依赖。提交时仍须由可信执行边界核验审批、权限和预算。来源：本章原创教学构造。[绘图prompt](../../images/ch09/Fig-09-01.prompt.txt)；[中英标签表](../../images/ch09/labels.csv)。
+> **Fig-09-01 带审批依赖的任务DAG。** 政策检索→资格核验；资格核验与材料准备共同汇入审批；审批→提交→状态验证。边表示前驱完成及证据依赖。提交时仍须由可信执行边界核验审批、权限和预算。来源：本章原创教学构造。
 
 ![Fig-09-01 带审批依赖的任务图](../../images/ch09/illustrator_20261116/Fig-09-01.svg)
-
-[查看 PDF](../../images/ch09/illustrator_20261116/Fig-09-01.pdf) · [下载可编辑 AI](../../images/ch09/illustrator_20261116/Fig-09-01.ai)
 
 ### 9.1.2 修复需要改变什么
 
@@ -185,11 +183,9 @@ if report["status"] == "VALID_UNDER_MODEL":
 
 VAL将计划验证建立在明确的PDDL语义上，并覆盖比本章更丰富的时间与连续效应[R4]。本章从该研究得到的工程启示是要说明验证语义；这里的串行化检查不支持动作重叠、连续量变化、随机效果或外部并发写入。把工具标成“可并行”之前，仍需另行分析资源、锁和外部系统一致性。
 
-> **Fig-09-02 规划、静态检查与执行器的接口。** 可信输入→候选→分层检查→执行前重新检查→执行器→独立验收。INVALID与UNKNOWN进入诊断通路；观测后修订交Ch10。来源：本章原创设计，非已冻结全书架构。[绘图prompt](../../images/ch09/Fig-09-02.prompt.txt)。
+> **Fig-09-02 规划、静态检查与执行器的接口。** 可信输入→候选→分层检查→执行前重新检查→执行器→独立验收。INVALID与UNKNOWN进入诊断通路；观测后修订交Ch10。来源：本章原创设计，非已冻结全书架构。
 
 ![Fig-09-02 规划、静态检查与执行器的接口](../../images/ch09/illustrator_20261116/Fig-09-02.svg)
-
-[查看 PDF](../../images/ch09/illustrator_20261116/Fig-09-02.pdf) · [下载可编辑 AI](../../images/ch09/illustrator_20261116/Fig-09-02.ai)
 
 ### 9.3.5 候选校验与目标可行性是两个问题
 
@@ -473,12 +469,12 @@ Ch10消费候选及诊断，在新观察后修订计划，并保留已发生行�
 
 ### 参考文献
 
-- **[R1]** Fikes, R. E., & Nilsson, N. J. (1971). STRIPS: A New Approach to the Application of Theorem Proving to Problem Solving. *IJCAI*, 608–619. [会议原文](https://ijcai.org/proceedings/1971/0063.pdf)。
-- **[R2]** Penberthy, J. S., & Weld, D. S. (1992). UCPOP: A Sound, Complete, Partial Order Planner for ADL. *KR*, 103–114. [大学托管原文](https://www.cs.uky.edu/~sgware/reading/papers/penberthy1992ucpop.pdf)；[作者项目书目](https://aiweb.cs.washington.edu/ai/ucpop.html)。
-- **[R3]** Erol, K., Hendler, J., & Nau, D. S. (1994). HTN Planning: Complexity and Expressivity. *AAAI*, 1123–1128. [官方原文](https://cdn.aaai.org/AAAI/1994/AAAI94-173.pdf)。
-- **[R4]** Howey, R., Long, D., & Fox, M. (2004). VAL: Automatic Plan Validation, Continuous Effects and Mixed Initiative Planning Using PDDL. *ICTAI*, 294–301. DOI: [10.1109/ICTAI.2004.120](https://doi.org/10.1109/ICTAI.2004.120)。[作者接受稿](https://strathprints.strath.ac.uk/2550/6/strathprints002550.pdf)。
-- **[R5]** Valmeekam, K., Marquez, M., Sreedharan, S., & Kambhampati, S. (2023). On the Planning Abilities of Large Language Models: A Critical Investigation. *NeurIPS*, 36. [会议原文与书目](https://papers.neurips.cc/paper_files/paper/2023/hash/efb2072a358cefb75886a315a6fcf880-Abstract-Conference.html)。DOI: 10.52202/075280-3320。
-- **[R6]** Kambhampati, S., et al. (2024). Position: LLMs Can't Plan, But Can Help Planning in LLM-Modulo Frameworks. [arXiv:2402.01817v3](https://arxiv.org/abs/2402.01817v3)，2024-06-12。
-- **[R7]** Ahn, M., et al. (2022). Do As I Can, Not As I Say: Grounding Language in Robotic Affordances. [arXiv:2204.01691v2](https://arxiv.org/abs/2204.01691v2)，2022-08-16。
-- **[R8]** Yao, S., et al. (2023). ReAct: Synergizing Reasoning and Acting in Language Models. [arXiv:2210.03629v3](https://arxiv.org/abs/2210.03629v3)，2023-03-10，ICLR 2023。
-- **[R9]** Wright, A., Andrews, H., & Hutton, B. (2022). JSON Schema Validation: A Vocabulary for Structural Validation of JSON. [Draft 2020-12 validation](https://json-schema.org/draft/2020-12/json-schema-validation)，draft-bhutton-json-schema-validation-01，2022-06-16；work in progress，非RFC。
+- **[R1]** Fikes, R. E., & Nilsson, N. J. (1971). STRIPS: A New Approach to the Application of Theorem Proving to Problem Solving. *IJCAI*, 608–619.
+- **[R2]** Penberthy, J. S., & Weld, D. S. (1992). UCPOP: A Sound, Complete, Partial Order Planner for ADL. *KR*, 103–114.
+- **[R3]** Erol, K., Hendler, J., & Nau, D. S. (1994). HTN Planning: Complexity and Expressivity. *AAAI*, 1123–1128.
+- **[R4]** Howey, R., Long, D., & Fox, M. (2004). VAL: Automatic Plan Validation, Continuous Effects and Mixed Initiative Planning Using PDDL. *ICTAI*, 294–301. DOI: 10.1109/ICTAI.2004.120。
+- **[R5]** Valmeekam, K., Marquez, M., Sreedharan, S., & Kambhampati, S. (2023). On the Planning Abilities of Large Language Models: A Critical Investigation. *NeurIPS*, 36. DOI: 10.52202/075280-3320。
+- **[R6]** Kambhampati, S., et al. (2024). Position: LLMs Can't Plan, But Can Help Planning in LLM-Modulo Frameworks. arXiv:2402.01817v3，2024-06-12。
+- **[R7]** Ahn, M., et al. (2022). Do As I Can, Not As I Say: Grounding Language in Robotic Affordances. arXiv:2204.01691v2，2022-08-16。
+- **[R8]** Yao, S., et al. (2023). ReAct: Synergizing Reasoning and Acting in Language Models. arXiv:2210.03629v3，2023-03-10，ICLR 2023。
+- **[R9]** Wright, A., Andrews, H., & Hutton, B. (2022). JSON Schema Validation: A Vocabulary for Structural Validation of JSON. Draft 2020-12 validation，draft-bhutton-json-schema-validation-01，2022-06-16；work in progress，非RFC。
