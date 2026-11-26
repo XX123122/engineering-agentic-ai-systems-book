@@ -1,0 +1,25 @@
+{
+  "evidence_level": "deterministic_mock",
+  "case_id": "Case-10-05",
+  "first_local_replacements": 6,
+  "first_global_replacements": 8,
+  "first_local_remaining": 33,
+  "first_global_remaining": 31,
+  "after_four_reads": 25,
+  "second_replacements": 4,
+  "remaining_budget": 20,
+  "revisions": 2,
+  "completed": [
+    "a@v2",
+    "b@v2",
+    "i",
+    "j",
+    "p",
+    "r",
+    "w"
+  ],
+  "no_progress": 1,
+  "reused_observation_rejected": "Reused or stale observation",
+  "business_task_accepted": false,
+  "note": "Graph mechanism only; final future nodes are not executed."
+}

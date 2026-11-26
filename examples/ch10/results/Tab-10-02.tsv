@@ -1,0 +1,5 @@
+strategy	denominator	successes	recoverable_denominator	recoverable_successes	duplicate_effects	revisions	mean_recovery_ticks	mean_remaining_budget
+fixed	10	0	8	0	0	0	4.6	25.4
+global	10	8	8	8	0	8	15.8	14.2
+local	10	8	8	8	0	8	15.8	14.2
+unsafe_full	10	0	8	0	8	8	24.6	5.4
