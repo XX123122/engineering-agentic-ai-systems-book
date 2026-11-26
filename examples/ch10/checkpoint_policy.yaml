@@ -1,0 +1,15 @@
+schema_status: ch10-proposal-v0
+evidence_level: deterministic_mock
+initial_ticks: 40
+max_revisions: 3
+max_no_progress: 3
+action_ticks: 1
+checkpoint_ticks: 1
+revision_cost: replacement_node_count
+observation_freshness: required
+completion_requires_external_verifier: true
+unknown_side_effect: escalate
+replay_applied_side_effect: false
+terminal_on_budget_exhaustion: true
+terminal_on_no_progress_limit: true
+wait_counts_against_budget: true

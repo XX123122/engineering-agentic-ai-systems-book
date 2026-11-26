@@ -1,0 +1,61 @@
+{
+  "fixed": {
+    "denominator": 10,
+    "successes": 0,
+    "recoverable_denominator": 8,
+    "recoverable_successes": 0,
+    "duplicate_effects": 0,
+    "revisions": 0,
+    "mean_recovery_ticks": 4.6,
+    "mean_remaining_budget": 25.4,
+    "terminal_counts": {
+      "STOP_NO_PROGRESS": 9,
+      "ESCALATE": 1
+    }
+  },
+  "global": {
+    "denominator": 10,
+    "successes": 8,
+    "recoverable_denominator": 8,
+    "recoverable_successes": 8,
+    "duplicate_effects": 0,
+    "revisions": 8,
+    "mean_recovery_ticks": 15.8,
+    "mean_remaining_budget": 14.2,
+    "terminal_counts": {
+      "ACCEPT": 8,
+      "STOP_NO_PROGRESS": 1,
+      "ESCALATE": 1
+    }
+  },
+  "local": {
+    "denominator": 10,
+    "successes": 8,
+    "recoverable_denominator": 8,
+    "recoverable_successes": 8,
+    "duplicate_effects": 0,
+    "revisions": 8,
+    "mean_recovery_ticks": 15.8,
+    "mean_remaining_budget": 14.2,
+    "terminal_counts": {
+      "ACCEPT": 8,
+      "STOP_NO_PROGRESS": 1,
+      "ESCALATE": 1
+    }
+  },
+  "unsafe_full": {
+    "denominator": 10,
+    "successes": 0,
+    "recoverable_denominator": 8,
+    "recoverable_successes": 0,
+    "duplicate_effects": 8,
+    "revisions": 8,
+    "mean_recovery_ticks": 24.6,
+    "mean_remaining_budget": 5.4,
+    "terminal_counts": {
+      "STOP_BUDGET": 8,
+      "STOP_NO_PROGRESS": 1,
+      "ESCALATE": 1
+    }
+  }
+}

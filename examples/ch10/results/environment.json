@@ -1,0 +1,14 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "yaml_version": "6.0.2",
+  "wall_seconds": 0.11069330000009359,
+  "schema_status": "ch10-proposal-v0",
+  "evidence_level": "deterministic_mock",
+  "sources": {
+    "revision.py": "2fc9e6eb9ff756ce6125c1c207b50139c566cef785addc79774e2b84827ea6a8",
+    "run_experiment.py": "b1d2eccbc8d4d959f5bf57eefb5da3941d9e1fafe9a8a504d7de824c608c1e23",
+    "checkpoint_policy.yaml": "dd0b2196b78892af95cdefa84c05e393fbabfcc13c42e9f0bf94ec11778ef564",
+    "task_chains.jsonl": "6b9e8ec3b8d6f3679664f0441f16f263dc0c787ff56130fdaed1eb94203f140e"
+  }
+}

@@ -1,0 +1,4 @@
+{"event": "readonly_mock_result", "node_id": "a@v2", "remaining_budget": 31, "decision": "CONTINUE"}
+{"event": "readonly_mock_result", "node_id": "b@v2", "remaining_budget": 29, "decision": "CONTINUE"}
+{"event": "readonly_mock_result", "node_id": "i", "remaining_budget": 27, "decision": "CONTINUE"}
+{"event": "readonly_mock_result", "node_id": "j", "remaining_budget": 25, "decision": "CONTINUE"}
